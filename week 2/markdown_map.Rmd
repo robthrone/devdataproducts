@@ -1,0 +1,28 @@
+---
+title: "Map with leaflet"
+author: "Jen V"
+date: "2023-05-22"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+
+## Ironman Tulsa run start/first transition 2023 
+
+```{r map, echo=FALSE}
+library(leaflet)
+
+df <- data.frame(lat = 36.136767, 
+                 lng = -96.263260)
+
+my_map <- df %>%
+    leaflet() %>% 
+    addTiles() %>% 
+    addMarkers()
+my_map
+
+```
+
