@@ -1,6 +1,6 @@
 ---
-title: "My presentation"
-author: "Jen Villwock"
+title: "Map with leaflet"
+author: "Jen V"
 date: "2023-05-22"
 output: ioslides_presentation
 ---
@@ -9,27 +9,23 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R Markdown
 
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Ironman Tulsa run start/finish 2023 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+```{r map, echo=FALSE}
+library(leaflet)
 
-## Slide with Bullets
+df <- data.frame(lat = runif(20, min = 39.2, max = 39.3),
+                 lng = runif(20, min = -76.6, max = -76.5))
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+df <- data.frame(lat = 36.136767, 
+                 lng = -96.263260)
 
-## Slide with R Output
+my_map <- df %>%
+    leaflet() %>% 
+    addTiles() %>% 
+    addMarkers()
+my_map
 
-```{r cars, echo = TRUE, comment=""}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
 ```
 
