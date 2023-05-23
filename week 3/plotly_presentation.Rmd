@@ -1,0 +1,33 @@
+---
+title: "Presentation with plotly graphic"
+author: "Jen V"
+date: "2023-05-23"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(tidyverse)
+library(plotly)
+library(datasets)
+```
+
+## Plot
+
+```{r}
+view(mpg)
+
+p <- mpg %>% 
+  mutate(trans = ifelse(str_detect(trans, "^auto"), "auto", "manual")) %>% 
+  mutate(trans = factor(trans)) %>% 
+  mutate(cyl = factor(cyl)) %>% 
+  ggplot(aes(cty, hwy, color = cyl))+
+  geom_point()+
+  facet_wrap(~ trans)+
+  labs(x = "City", y = "Highway", title = "Comparing highway and city mileage of auto and manual transmissions")
+
+ip <- ggplotly(p)
+ip
+```
+
