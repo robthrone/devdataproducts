@@ -2,7 +2,9 @@
 Repo is for the assignments for developing data products course
 
 Shiny app documentation
+
 GDP time series and growth analysis application. 
+
 In the first tab of the app you are able to select from a drop down menu of counties. Select as few as one or as many as you’d like. 
 A time series plot will be displayed on the right side after a country as been select. 
 Selecting multiple countries will display their time series plots simultaneously. 
