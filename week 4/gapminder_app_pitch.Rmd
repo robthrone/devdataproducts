@@ -1,0 +1,62 @@
+---
+title: "The Gap App"
+author: "Jen V"
+date: "2023-05-30"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(gapminder)
+library(tidyverse)
+```
+
+## GDP Time Series Explorer
+
+Introduction to the app's purpose and key features.
+Highlight the ability to display time series GDP information for any country, compare different countries' GDP over time, calculate GDP growth rates, and view the top five countries by their GDP growth rate.
+
+## Time Series GDP Visualization
+
+- Showcase the app's interface displaying a line graph of a country's GDP over a specified time period.
+
+```{r}
+gapminder %>%
+  filter(country %in% "Brazil") %>% 
+  ggplot(aes(x = year, y = gdpPercap, color = country)) +
+  geom_line() +
+  labs(x = "Year", y = "GDP per Capita", color = "Country") +
+  theme_minimal()
+```
+
+
+## Country Comparison
+
+- Demonstrate the app's side-by-side comparison feature, enabling users to compare the GDP of multiple countries on a single graph.
+- Highlight the benefit of easily identifying trends, patterns, and disparities between countries' economic growth.
+```{r}
+gapminder %>%
+  filter(country %in% c("Bolivia", "Brazil")) %>% 
+  ggplot(aes(x = year, y = gdpPercap, color = country)) +
+  geom_line() +
+  labs(x = "Year", y = "GDP per Capita", color = "Country") +
+  theme_minimal()
+```
+
+
+## GDP Growth Rate Calculator
+
+- Show the app's GDP growth rate calculator, where users can input a country and time range to obtain the corresponding growth rate.
+- Explain how this feature provides users with a valuable tool to assess a country's economic performance and make informed decisions.
+
+## Top 5 Countries by GDP Growth
+
+- Display a screen capturing the app's leaderboard showcasing the top five countries with the highest GDP growth rates over a specified timeframe.
+- Emphasize the ability to gain insights into global economic trends and identify emerging economic powerhouses.
+
+## Closing
+
+Recap the key features: Time Series GDP Visualization, Country Comparison, GDP Growth Rate Calculator, and Top 5 Countries by GDP Growth.
+Highlight the app's user-friendly interface and its potential to support data-driven decision-making in finance, economics, and global business.
+Include contact information and call-to-action, such as downloading the app or visiting a website for more information.
